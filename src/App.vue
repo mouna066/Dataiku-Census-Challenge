@@ -1,28 +1,60 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import store from './config/store'
+import Vuex from 'vuex'
 
 export default {
   name: 'App',
+  store: store,
   components: {
-    HelloWorld
+  },
+  data() {
+    return {
+    }
+  },
+  methods: {
+    ...Vuex.mapActions(["getData"]),
+  },
+  computed: {
+    ...Vuex.mapGetters(["data"]),
+  },
+  mounted() {
+
   }
 }
 </script>
 
 <style>
+:root {
+	--color-primary-blue: #1E079B;
+	--color-secondary-blue: #2539B0;
+	--color-primary-pink: #EF2A82;
+	--color-light: #FFFFFF;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: var(--color-light);
+  height:100%;
 }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    height: 100%;
+}
+
+*,*::before,*::after {
+  box-sizing: inherit;
+}
+
 </style>
