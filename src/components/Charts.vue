@@ -2,8 +2,9 @@
   <div>
     <div class="text">
       <h1>{{ msg }}</h1>
+      <p>Veuillez choisir le nom de la colomn afin de gérérer les graphiques correspondant <p/>
       <select v-model="selected" @change="onChange(selected)">
-        <option disabled value="">Choisissez</option>
+        <option disabled value="">Nom de la colomn</option>
         <option v-for="(item, key) in columns" :key="key">
           {{ item }}
         </option>
